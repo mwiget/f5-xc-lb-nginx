@@ -8,12 +8,11 @@ tasks:
     before: |
       echo "tasks - before"
     command: |
-      echo "tasks - command"
       mkdir -p .secrets
       echo $PLAYGROUND_STAGING_P12 |base64 -d > .secrets/playground.staging.api-creds.p12
       echo $PUBLIC_SERVER_CA |base64 -d | zcat > .secrets/public_server_ca.crt
-      # terraform init
-      # terraform apply --auto-approve  
+      #
+      terragrunt run-all apply --terragrunt-non-interactive
     
 # List the ports to expose. Learn more https://www.gitpod.io/docs/config-ports/
 ports:
