@@ -1,4 +1,5 @@
 *tfstate*
+.secrets/*
 *.p12
 *.crt
 *.bak

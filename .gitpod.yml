@@ -9,8 +9,9 @@ tasks:
       echo "tasks - before"
     command: |
       echo "tasks - command"
-      echo $PLAYGROUND_STAGING_P12 |base64 -d > playground.staging.api-creds.p12
-      echo $PUBLIC_SERVER_CA |base64 -d | zcat > public_server_ca.crt
+      mkdir -p .secrets
+      echo $PLAYGROUND_STAGING_P12 |base64 -d > .secrets/playground.staging.api-creds.p12
+      echo $PUBLIC_SERVER_CA |base64 -d | zcat > .secrets/public_server_ca.crt
       # terraform init
       # terraform apply --auto-approve  
     
