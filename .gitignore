@@ -1,0 +1,8 @@
+*tfstate*
+*.p12
+*.crt
+*.bak
+*.json
+.terraform.lock.hcl
+*.broken
+.terraform
