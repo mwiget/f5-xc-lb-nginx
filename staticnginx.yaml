@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: staticngnix
+  name: staticnginx
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: staticngnix
+      app: staticnginx
   template:
     metadata:
       labels:
-        app: staticngnix
+        app: staticnginx
     spec:
       containers:
-      - image: ghcr.io/mwiget/staticngnix
+      - image: ghcr.io/mwiget/staticnginx
         imagePullPolicy: Always
 #       imagePullPolicy: IfNotPresent
-        name: staticngnix
+        name: staticnginx
         ports:
         - containerPort: 8080
           protocol: TCP
@@ -24,13 +24,13 @@ spec:
 kind: Service
 apiVersion: v1
 metadata:
-  name: staticngnix
+  name: staticnginx
 spec:
   ports:
     - protocol: TCP
       port: 8080
       targetPort: 8080
   selector:
-    app: staticngnix
+    app: staticnginx
   type: ClusterIP
   sessionAffinity: None

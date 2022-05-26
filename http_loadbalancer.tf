@@ -1,5 +1,5 @@
-resource "volterra_http_loadbalancer" "staticngnix" {
-  name                            = format("%s-staticngnix", var.projectPrefix)
+resource "volterra_http_loadbalancer" "staticnginx" {
+  name                            = format("%s-staticnginx", var.projectPrefix)
   namespace                       = var.namespace
   no_challenge                    = true
   domains                         = [var.fqdn]
@@ -22,7 +22,7 @@ resource "volterra_http_loadbalancer" "staticngnix" {
       origin_pools {
         pool {
           namespace = var.namespace
-          name = format("%s-staticngnix", var.projectPrefix)
+          name = format("%s-staticnginx", var.projectPrefix)
         }
       }
       advanced_options {
@@ -32,5 +32,5 @@ resource "volterra_http_loadbalancer" "staticngnix" {
       }
     }
   }
-  depends_on = [ volterra_origin_pool.staticngnix, volterra_namespace.ns ]
+  depends_on = [ volterra_origin_pool.staticnginx, volterra_namespace.ns ]
 }
