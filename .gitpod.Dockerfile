@@ -9,4 +9,7 @@ RUN curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add - \
       && curl -sLO "https://vesio.azureedge.net/releases/vesctl/$(curl -s https://downloads.volterra.io/releases/vesctl/latest.txt)/vesctl.linux-amd64.gz" \
       && gzip -d  vesctl.linux-amd64.gz \
       && chmod +x vesctl.linux-amd64 \
-      && sudo mv  vesctl.linux-amd64 /usr/local/bin/vesctl
+      && sudo mv  vesctl.linux-amd64 /usr/local/bin/vesctl \
+      && curl -sLO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl" \
+      && chmod +x kubectl \
+      && sudo mv kubectl /usr/local/bin/
