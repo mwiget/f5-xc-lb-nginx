@@ -14,10 +14,12 @@ resource "volterra_api_credential" "cluster" {
   api_credential_type = "KUBE_CONFIG"
   virtual_k8s_namespace = var.namespace
   virtual_k8s_name = volterra_virtual_k8s.cluster.name
+  depends_on = [ volterra_namespace.ns ]
 }
 
 resource "local_file" "kubeconfig" {
-    content  = base64decode(volterra_api_credential.cluster.data)
-    filename = "/home/gitpod/.kube/config"
+  content  = base64decode(volterra_api_credential.cluster.data)
+  filename = "/home/gitpod/.kube/config"
+  depends_on = [ volterra_virtual_k8s.cluster ]
 }
 
