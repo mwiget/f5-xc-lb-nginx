@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - image: marcelwiget/staticngnix
-        imagePullPolicy: Always
+        imagePullPolicy: IfNotPresent
         name: staticngnix
         ports:
         - containerPort: 8080

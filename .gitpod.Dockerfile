@@ -12,4 +12,5 @@ RUN curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add - \
       && sudo mv  vesctl.linux-amd64 /usr/local/bin/vesctl \
       && curl -sLO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl" \
       && chmod +x kubectl \
-      && sudo mv kubectl /usr/local/bin/
+      && sudo mv kubectl /usr/local/bin/ \
+      && curl -L https://github.com/derailed/k9s/releases/download/v0.25.8/k9s_Linux_x86_64.tar.gz | sudo tar -C /usr/local/bin -xvz k9s
