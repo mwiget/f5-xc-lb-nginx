@@ -5,19 +5,16 @@ image:
 tasks:
   - init: |
       echo "tasks - init"
-    before: |
-      echo "tasks - before"
-    command: |
-      mkdir -p .secrets
       echo $PLAYGROUND_STAGING_P12 |base64 -d > ~/playground.staging.api-creds.p12
       echo $PUBLIC_SERVER_CA |base64 -d | zcat > ~/public_server_ca.crt
       export VOLT_API_URL="https://playground.staging.volterra.us/api"
       export VOLT_API_P12_FILE="/home/gitpod/playground.staging.api-creds.p12"
       export VOLT_API_CA_CERT="/home/gitpod/public_server_ca.crt"
-      echo $VOLT_API_URL > ~/.vesconfig
+      echo "server-urls: $VOLT_API_URL" > ~/.vesconfig
       echo "p12-bundle: $VOLT_API_P12_FILE" >> ~/.vesconfig
-      echo "cert: $VOLT_API_CA_CERT" >> ~/.vesconfig
-
+    before: |
+      echo "tasks - before"
+    command: |
       terraform init
       terraform apply --auto-approve
     
