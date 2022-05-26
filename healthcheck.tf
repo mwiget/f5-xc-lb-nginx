@@ -11,4 +11,5 @@ resource "volterra_healthcheck" "staticngnix" {
   timeout             = 1
   unhealthy_threshold = 2
 
+  depends_on = [ volterra_namespace.ns ]
 }

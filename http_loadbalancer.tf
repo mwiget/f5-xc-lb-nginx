@@ -32,5 +32,5 @@ resource "volterra_http_loadbalancer" "staticngnix" {
       }
     }
   }
-  depends_on = [ volterra_origin_pool.staticngnix ]
+  depends_on = [ volterra_origin_pool.staticngnix, volterra_namespace.ns ]
 }
