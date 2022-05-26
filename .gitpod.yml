@@ -16,6 +16,8 @@ tasks:
       echo "tasks - command"
       terraform init
       terraform apply --auto-approve
+      until kubectl cluster-info; do sleep 5; done
+      echo "vk8s cluster ready"
     
 # List the ports to expose. Learn more https://www.gitpod.io/docs/config-ports/
 ports:
