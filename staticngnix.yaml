@@ -13,7 +13,7 @@ spec:
         app: staticngnix
     spec:
       containers:
-      - image: marcelwiget/staticngnix
+      - image: ghcr.io/mwiget/staticngnix
         imagePullPolicy: IfNotPresent
         name: staticngnix
         ports:

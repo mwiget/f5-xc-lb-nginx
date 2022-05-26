@@ -1,6 +1,5 @@
 #!/bin/bash
-DOCKER_USER=marcelwiget
-CONTAINER=$DOCKER_USER/staticngnix
+CONTAINER=ghcr.io/mwiget/staticngnix
 docker build -t $CONTAINER .
-echo $DOCKER_PASSWORD| docker login --username $DOCKER_USER --password-stdin
+echo $GITHUB_REGISTRY_PAT | docker login ghcr.io -u USERNAME --password-stdin
 docker push $CONTAINER
