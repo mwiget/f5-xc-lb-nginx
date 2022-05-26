@@ -15,8 +15,8 @@ tasks:
       echo "p12-bundle: $VOLT_API_P12_FILE" >> ~/.vesconfig
       echo "tasks - command"
       terraform init
-      /bin/bash ./build_container.sh
       terraform apply --auto-approve || (sleep 5 && terraform apply --auto-approve)
+      /bin/bash ./build_container.sh
       until kubectl cluster-info; do sleep 5; done
       echo "vk8s cluster ready"
     
