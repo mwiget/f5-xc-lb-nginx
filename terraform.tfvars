@@ -1,0 +1,2 @@
+projectPrefix = "mwlb"
+namespace     = "mwlb"
