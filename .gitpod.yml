@@ -18,7 +18,8 @@ tasks:
       terraform apply --auto-approve || (sleep 5 && terraform apply --auto-approve)
       /bin/bash ./build_container.sh
       until kubectl cluster-info; do sleep 5; done
-      echo "vk8s cluster ready"
+      echo "vk8s cluster ready. Deploying staticngnix to all regional edges ..."
+      kubectl apply -f staticngnix.yaml
     
 # List the ports to expose. Learn more https://www.gitpod.io/docs/config-ports/
 ports:
