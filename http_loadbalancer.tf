@@ -22,7 +22,7 @@ resource "volterra_http_loadbalancer" "staticnginx" {
       origin_pools {
         pool {
           namespace = var.namespace
-          name = format("%s-staticnginx", var.projectPrefix)
+          name = volterra_origin_pool.staticnginx.name
         }
       }
       advanced_options {
