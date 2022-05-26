@@ -1,4 +1,6 @@
 *tfstate*
+.*.swp
+*.swp
 .secrets/*
 *.p12
 *.crt

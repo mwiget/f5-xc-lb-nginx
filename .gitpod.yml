@@ -14,8 +14,8 @@ tasks:
       export VOLT_API_URL="https://playground.staging.volterra.us/api"
       export VOLT_API_P12_FILE="/workspace/f5-xc-lb-nginx/.secrets/playground.staging.api-creds.p12"
       export VOLT_API_CA_CERT="/workspace/f5-xc-lb-nginx/.secrets/public_server_ca.crt"
-      #terraform init
-      #terraform apply --auto-approve
+      terraform init
+      terraform apply --auto-approve
     
 # List the ports to expose. Learn more https://www.gitpod.io/docs/config-ports/
 ports:
