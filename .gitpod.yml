@@ -14,6 +14,10 @@ tasks:
       export VOLT_API_URL="https://playground.staging.volterra.us/api"
       export VOLT_API_P12_FILE="/workspace/f5-xc-lb-nginx/.secrets/playground.staging.api-creds.p12"
       export VOLT_API_CA_CERT="/workspace/f5-xc-lb-nginx/.secrets/public_server_ca.crt"
+      echo $VOLT_API_URL > .vesconfig
+      echo "p12-bundle: $VOLT_API_P12_FILE" >> .vesconfig
+      echo "cert: $VOLT_API_CA_CERT" >> .vesconfig
+
       terraform init
       terraform apply --auto-approve
     
