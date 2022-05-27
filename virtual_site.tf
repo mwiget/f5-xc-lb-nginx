@@ -7,5 +7,7 @@ resource "volterra_virtual_site" "vs" {
   }
 
   site_type = "REGIONAL_EDGE"
+
+  depends_on = [ volterra_namespace.ns ]
 }
 
