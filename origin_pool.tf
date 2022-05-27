@@ -8,12 +8,12 @@ resource "volterra_origin_pool" "staticnginx" {
 
   origin_servers {
     k8s_service {
-      service_name  = "staticnginx"
+      service_name  = format("staticnginx.%s", var.projectPrefix)
       vk8s_networks = true
       site_locator {
         site {
-          name      = volterra_virtual_k8s.cluster.name
-          namespace = "system"
+          name      = volterra_virtual_site.vs.name
+          namespace = var.namespace
         }
       }
     }
