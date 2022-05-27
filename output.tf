@@ -4,3 +4,6 @@ output "volterra_namespace" {
 output "volterra_virtual_k8s" {
   value = volterra_virtual_k8s.cluster.name
 }
+output "fqdn" {
+  value = var.fqdn
+}
