@@ -13,24 +13,12 @@ resource "volterra_http_loadbalancer" "staticnginx" {
     http_redirect = true
   }
 
-  routes {
-    simple_route {
-      http_method = "ANY"
-      path {
-        prefix = "/"
-      }
-      origin_pools {
-        pool {
-          namespace = var.namespace
-          name = format("%s-staticnginx", var.projectPrefix)
-        }
-      }
-      advanced_options {
-        web_socket_config {
-          use_websocket = true
-        }
-      }
+  default_route_pools {
+    pool {
+      namespace = var.namespace
+      name = volterra_origin_pool.staticnginx.name
     }
   }
+
   depends_on = [ volterra_origin_pool.staticnginx, volterra_namespace.ns ]
 }
