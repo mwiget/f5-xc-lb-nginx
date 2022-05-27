@@ -1,5 +1,5 @@
-resource "volterra_origin_pool" "staticnginx" {
-  name                   = format("%s-staticnginx", var.projectPrefix)
+resource "volterra_origin_pool" "webserver" {
+  name                   = format("%s-webserver", var.projectPrefix)
   namespace              = var.namespace
   endpoint_selection     = "LOCAL_PREFERRED"
   loadbalancer_algorithm = "LB_OVERRIDE"
@@ -8,7 +8,7 @@ resource "volterra_origin_pool" "staticnginx" {
 
   origin_servers {
     k8s_service {
-      service_name  = format("staticnginx.%s", var.projectPrefix)
+      service_name  = format("webserver.%s", var.projectPrefix)
       vk8s_networks = true
       site_locator {
         site {
@@ -19,7 +19,7 @@ resource "volterra_origin_pool" "staticnginx" {
     }
   }
   healthcheck {
-    name = format("%s-staticnginx", var.projectPrefix)
+    name = format("%s-webserver", var.projectPrefix)
   }
   depends_on = [ volterra_virtual_k8s.cluster ]
 }

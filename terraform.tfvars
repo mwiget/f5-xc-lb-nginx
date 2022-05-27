@@ -1,3 +1,3 @@
 projectPrefix = "mwlb"
 namespace     = "mwlb"
-fqdn          = "nginx.demo.mwlabs.net"
+fqdn          = "webserver.demo.mwlabs.net"

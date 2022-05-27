@@ -1,5 +1,5 @@
-resource "volterra_healthcheck" "staticnginx" {
-  name      = format("%s-staticnginx", var.projectPrefix)
+resource "volterra_healthcheck" "webserver" {
+  name      = format("%s-webserver", var.projectPrefix)
   namespace = var.namespace
 
   http_health_check {

@@ -1,5 +1,5 @@
-resource "volterra_http_loadbalancer" "staticnginx" {
-  name                            = format("%s-staticnginx", var.projectPrefix)
+resource "volterra_http_loadbalancer" "webserver" {
+  name                            = format("%s-webserver", var.projectPrefix)
   namespace                       = var.namespace
   no_challenge                    = true
   domains                         = [var.fqdn]
@@ -16,9 +16,9 @@ resource "volterra_http_loadbalancer" "staticnginx" {
   default_route_pools {
     pool {
       namespace = var.namespace
-      name = volterra_origin_pool.staticnginx.name
+      name = volterra_origin_pool.webserver.name
     }
   }
 
-  depends_on = [ volterra_origin_pool.staticnginx, volterra_namespace.ns ]
+  depends_on = [ volterra_origin_pool.webserver, volterra_namespace.ns ]
 }
