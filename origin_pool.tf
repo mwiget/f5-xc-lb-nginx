@@ -21,5 +21,5 @@ resource "volterra_origin_pool" "webserver" {
   healthcheck {
     name = format("%s-webserver", var.projectPrefix)
   }
-  depends_on = [ volterra_virtual_k8s.cluster ]
+  depends_on = [ volterra_virtual_k8s.cluster, volterra_virtual_site.vs ]
 }

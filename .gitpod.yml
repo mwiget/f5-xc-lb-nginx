@@ -19,7 +19,7 @@ tasks:
       /bin/bash ./build_container.sh
       until kubectl cluster-info; do echo "waiting since $SECONDS ..." && sleep 5; done
       echo "vk8s cluster ready. Deploying staticnginx to all regional edges ..."
-      kubectl apply -f staticnginx.yaml
+      kubectl apply -f webserver.yaml
     
 # List the ports to expose. Learn more https://www.gitpod.io/docs/config-ports/
 ports:
