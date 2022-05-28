@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-	fileServer := http.FileServer(http.Dir("./"))
+	fileServer := http.FileServer(http.Dir("/tmp"))
 	http.Handle("/", fileServer)
 	fmt.Printf("Starting server at port 8080\n")
 	if err := http.ListenAndServe(":8080", nil); err != nil {
