@@ -5,7 +5,6 @@ cat <<EOF > $PAGE
  <!--
  body {
   color: white;
-  opacity: 0.6;
   background-image: url(panorama.jpg);
   background-repeat: no-repeat;
   background-size: cover;
