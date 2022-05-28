@@ -11,7 +11,7 @@ resource "volterra_origin_pool" "webserver" {
       service_name  = format("webserver.%s", var.projectPrefix)
       vk8s_networks = true
       site_locator {
-        site {
+        virtual_site {
           name      = volterra_virtual_site.vs.name
           namespace = var.namespace
         }
