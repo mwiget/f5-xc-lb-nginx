@@ -8,5 +8,6 @@ FROM alpine:latest
 RUN apk add --no-cache curl
 COPY --from=builder /go/server ./server
 
+COPY panorama.jpg /tmp/
 COPY entrypoint.sh /
 ENTRYPOINT ["/bin/sh", "/entrypoint.sh"]
