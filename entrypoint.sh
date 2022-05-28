@@ -17,6 +17,7 @@ cat <<EOF > $PAGE
 <p><pre>
 EOF
 curl https://ipinfo.io >> $PAGE
+echo "<p>" >> $PAGE
 printenv >> $PAGE
 echo "</pre> <p> </body> </html>" >> $PAGE
 exec ./server
